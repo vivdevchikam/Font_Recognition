@@ -1,0 +1,4 @@
+flask
+pillow
+numpy
+tensorflow  # or pytorch - whatever your model uses
