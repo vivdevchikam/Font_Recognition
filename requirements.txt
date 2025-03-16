@@ -1,18 +1,12 @@
-
-blinker==1.9.0
-Flask==3.1.0
-
-Jinja2==3.1.6
-keras==3.9.0
-
-numpy==2.1.3
-
-pillow==11.1.0
-
-serverless-wsgi==3.0.5
-setuptools==76.0.0
-
-tensorflow==2.19.0
-gunicorn==21.2.0
-opencv-python-headless==4.9.0.80
-opencv-python==4.9.0.80
+# Core Requirements
+Flask==3.0.2
+Werkzeug==3.0.1
+numpy==1.24.3
+opencv-python-headless==4.8.1.78  # Headless version for servers
+tensorflow==2.15.0  # Specific version for stability
+Pillow==10.1.0  # Image processing
+gunicorn==21.2.0  # Production server
+h5py==3.10.0  # For model loading
+protobuf==3.20.3  # Required by TensorFlow
+keras==2.15.0  # Match TensorFlow version
+scikit-learn==1.3.2  # If you use any preprocessing
