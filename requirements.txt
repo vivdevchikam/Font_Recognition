@@ -13,3 +13,4 @@ serverless-wsgi==3.0.5
 setuptools==76.0.0
 
 tensorflow==2.19.0
+gunicorn==21.2.0
