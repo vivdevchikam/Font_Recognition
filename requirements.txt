@@ -14,3 +14,5 @@ setuptools==76.0.0
 
 tensorflow==2.19.0
 gunicorn==21.2.0
+opencv-python-headless==4.9.0.80
+opencv-python==4.9.0.80
