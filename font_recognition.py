@@ -1,17 +1,18 @@
 import cv2
 import numpy as np
-from tensorflow.keras.models import load_model  # type: ignore # or your framework
+from tensorflow.keras.models import load_model
+from tensorflow.keras.layers import InputLayer
 
-from tensorflow.keras.layers import InputLayer as OriginalInputLayer
+# Define a custom InputLayer to handle 'batch_shape' parameter
+class CustomInputLayer(InputLayer):
+    def __init__(self, *args, **kwargs):
+        # Extract 'batch_shape' if present and convert to 'batch_input_shape'
+        batch_shape = kwargs.pop('batch_shape', None)
+        if batch_shape is not None:
+            kwargs['batch_input_shape'] = batch_shape
+        super().__init__(*args, **kwargs)
 
-class CustomInputLayer(OriginalInputLayer):
-    def __init__(self, **kwargs):
-        # If 'batch_shape' exists, replace it with 'batch_input_shape'
-        if 'batch_shape' in kwargs:
-            kwargs['batch_input_shape'] = kwargs.pop('batch_shape')
-        super().__init__(**kwargs)
-
-# Load your model using the custom object
+# Load the model with the custom InputLayer
 model = load_model('model/font_classifier_model.h5', custom_objects={'InputLayer': CustomInputLayer})
 
 
